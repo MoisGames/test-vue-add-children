@@ -9,7 +9,7 @@
         </div>
         <div class="input-container">
             <span class="input-span">Имя</span>
-            <input type="text" class="form-personal-data__input" placeholder="Имя">
+            <input type="number" class="form-personal-data__input" placeholder="Имя">
         </div>
         
     </v-form>
