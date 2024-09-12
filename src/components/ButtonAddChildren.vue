@@ -28,6 +28,7 @@ v-btn {
     border: 2px solid rgba(1, 167, 253, 1);
     color: rgba(1, 167, 253, 1);
     background-color: white;
+    cursor: pointer;
 }
 .img-container {
     width: 24px;
