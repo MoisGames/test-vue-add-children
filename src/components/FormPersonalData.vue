@@ -8,7 +8,7 @@
             <input type="text" class="form-personal-data__input" placeholder="Имя">
         </div>
         <div class="input-container">
-            <span class="input-span">Имя</span>
+            <span class="input-span">Возраст</span>
             <input type="number" class="form-personal-data__input" placeholder="Имя">
         </div>
         
@@ -23,15 +23,12 @@ export default {
 v-form {
     display: flex;
     flex-direction: column;
-    width: Hug (650px)px;
+    width: Hug (616px)px;
     height: Hug (200px)px;
     top: 106px;
     left: 375px;
     gap: 20px;
     opacity: 0px;
-    
-    
-
 }
 span {
     font-family: "Montserrat";
@@ -39,6 +36,7 @@ span {
     font-weight: 500;
     line-height: 24px;
     text-align: left;
+    margin-left: 16px;
 
 }
 .input-container {
