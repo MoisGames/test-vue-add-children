@@ -1,18 +1,19 @@
 <template>
-    <button>
+    <v-btn>
         <div class="img-container">
             <img src="../assets/Union.png">
         </div>
         <span>Добавить ребенка</span>
-    </button>
+    </v-btn>
 </template>
 <script>
 export default {
     name: "ButtonAddChildren"
 }
+
 </script>
 <style scoped>
-button {
+v-btn {
     display: flex;
     justify-content: center;
     align-items: center;

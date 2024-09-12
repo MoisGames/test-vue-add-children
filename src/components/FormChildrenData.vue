@@ -10,6 +10,9 @@
                 <span class="input-span">Возраст</span>
                 <input type="number" class="form-children-data__input" placeholder="Имя">
             </div>
+            <button class="button-delete">
+                    Удалить
+            </button>
         </div>
     </v-form>
 </template>
@@ -80,5 +83,17 @@ span {
     border: none;
     padding-left: 8px;
     
+}
+.button-delete {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(1, 167, 253, 1);
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
 }
 </style>
