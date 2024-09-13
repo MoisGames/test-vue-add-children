@@ -70,6 +70,12 @@ export default {
     border-radius: 5px;
     opacity: 0px;
     background-color: rgba(241, 241, 241, 1);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+
 
 }
 </style>
