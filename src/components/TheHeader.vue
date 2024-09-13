@@ -4,10 +4,10 @@
             <img src="../assets/Logo_imi_horizontal.png" class="header__logo_img">
         </div>
         <nav class="header__link_container">
-            <a class="header__link">
+            <a class="header__link" @click="goToHome">
                 Форма
             </a>
-            <a class="header__link">
+            <a class="header__link" @click="goToPreview">
                 Превью
             </a>
         </nav>
@@ -16,7 +16,14 @@
 <script>
 export default {
   name: 'TheHeader',
-  
+  methods: {
+    goToHome() {
+        this.$router.push('/home')
+    },
+    goToPreview() {
+        this.$router.push('/preview')
+    }
+  }
 }
 </script>
 

@@ -9,7 +9,7 @@
         </div>
         <div class="input-container">
             <span class="input-span">Возраст</span>
-            <input type="number" class="form-personal-data__input" placeholder="Имя">
+            <input type="number" class="form-personal-data__input" placeholder="Возраст">
         </div>
         
     </v-form>

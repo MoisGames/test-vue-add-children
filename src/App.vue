@@ -1,7 +1,8 @@
 /* eslint-disable */
 <template>
   <TheHeader />
-  <FormPage />
+  <router-view></router-view>
+  <!-- <RouterView></RouterView> -->
   <TheFooter />
 </template>
 

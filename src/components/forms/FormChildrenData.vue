@@ -14,7 +14,7 @@
             </div>
             <div class="input-container">
                 <span class="input-span">Возраст</span>
-                <input type="number" class="form-children-data__input" placeholder="Имя">
+                <input type="number" class="form-children-data__input" placeholder="Возраст">
             </div>
             <button class="button-delete">
                     Удалить
