@@ -4,8 +4,8 @@
     <v-form v-if="shapeSwitch">
         <span>Дети (макс.5)</span>
         <div class="array-input" v-for="item in items" 
-        :key="item.message" 
-        :msg="item.message" 
+        :key="items.length" 
+        
         :is="componentName">
             <div class="two-input">
             <div class="input-container">
@@ -35,7 +35,7 @@ export default {
         },
     data() {
         return {
-            items: [],
+            items: [], // Пустой массив в который мы добавляем элементы
             componentName: 'child-component',
             shapeSwitch: false,
             onShowButton: true,
@@ -46,9 +46,10 @@ export default {
         
         pushItem() {
             this.shapeSwitch = true;
-            if (this.items.length < 5) {
+            if (this.items.length < 4) {
                 this.items.push({message: this.items.length});
-            } else if (this.items.length >= 5) {
+            } else if (this.items.length = 4) {
+                this.items.push({message: this.items.length});
                 this.onShowButton = false;
             }
             
