@@ -13,6 +13,12 @@ export default {
 
 </script>
 <style scoped>
+@font-face {
+  font-family: "Montserrat-light"; 
+  src: url("../assets/fonts/Montserrat-Light.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
 v-btn {
     display: flex;
     justify-content: center;
@@ -29,6 +35,12 @@ v-btn {
     color: rgba(1, 167, 253, 1);
     background-color: white;
     cursor: pointer;
+    font-family: "Montserrat-light";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+
 }
 .img-container {
     width: 24px;

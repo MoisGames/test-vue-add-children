@@ -11,7 +11,6 @@
             <span class="input-span">Возраст</span>
             <input type="number" class="form-personal-data__input" placeholder="Возраст">
         </div>
-        
     </v-form>
 </template>
 <script>
@@ -50,8 +49,6 @@ span {
     border: 1px solid rgba(241, 241, 241, 1);
     opacity: 0px;
     margin: 20px;
-    
-
 }
 .input-span {
     width: 29px;

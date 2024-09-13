@@ -1,11 +1,22 @@
 <template>
+    <v-form>
+        <span>Персональные данные</span>
+        <div class="input-container__personal">
+            <span class="input-span">Имя</span>
+            <input type="text" class="form-personal-data__input" placeholder="Имя">
+        </div>
+        <div class="input-container__personal">
+            <span class="input-span">Возраст</span>
+            <input type="number" class="form-personal-data__input" placeholder="Возраст">
+        </div>
+    <div class="button-add__wrapper">
+        <ButtonAddChildren @click="pushItem" v-if="onShowButton"/>
+    </div>
     
-    <ButtonAddChildren @click="pushItem" v-if="onShowButton"/>
-    <v-form v-if="shapeSwitch">
-        <span>Дети (макс.5)</span>
+        <div class="block-children" v-if="shapeSwitch">
+            <span class="span-block">Дети (макс.5)</span>
         <div class="array-input" v-for="item in items" 
         :key="items.length" 
-        
         :is="componentName">
             <div class="two-input">
             <div class="input-container">
@@ -21,6 +32,8 @@
             </button>
             </div>
         </div>
+        </div>
+        
     </v-form>
     
 </template>
@@ -85,6 +98,7 @@ v-form {
     left: 375px;
     gap: 20px;
     opacity: 0px;
+    margin-top: 30px;
 }
 span {
     font-family: "Montserrat";
@@ -94,6 +108,24 @@ span {
     text-align: left;
     
 
+}
+.form-personal-data__input {
+    padding-left: 16px;
+    border: none;
+    padding-left: 8px;
+   
+}
+.input-container__personal {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 80px;
+    gap: 0px;
+    opacity: 0px;
+    border-radius: 4px 0px 0px 0px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    opacity: 0px;
+    margin: 20px;
 }
 .two-input {
     display: flex;
@@ -130,10 +162,25 @@ span {
     color: rgba(17, 17, 17, 0.48);
     padding: 16px 8px;
 }
+.button-add__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
 .form-children-data__input {
     border: none;
     padding-left: 8px;
     
+}
+.block-children {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.span-block {
+    margin-bottom: 30px;
 }
 .button-delete {
     font-family: "Montserrat";
