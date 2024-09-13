@@ -1,8 +1,8 @@
-/* eslint-disable */
+
 <template>
 <FormPersonalData />
-<ButtonAddChildren/>
-<FormChildrenData v-if="shapeSwitch"/>
+
+<FormChildrenData />
 
 </template>
 <script>
@@ -15,10 +15,10 @@ export default {
   components: {
         FormChildrenData,
         FormPersonalData,
-        ButtonAddChildren,
+        
       }
 }
-let shapeSwitch = false;
+
 </script>
 
 <style>

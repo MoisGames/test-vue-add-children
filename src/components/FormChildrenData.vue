@@ -1,7 +1,13 @@
 <template>
-    <v-form>
+    
+    <ButtonAddChildren @click="pushItem" v-if="onShowButton"/>
+    <v-form v-if="shapeSwitch">
         <span>Дети (макс.5)</span>
-        <div class="two-input">
+        <div class="array-input" v-for="item in items" 
+        :key="item.message" 
+        :msg="item.message" 
+        :is="componentName">
+            <div class="two-input">
             <div class="input-container">
                 <span class="input-span">Имя</span>
                 <input type="text" class="form-children-data__input" placeholder="Имя">
@@ -13,16 +19,60 @@
             <button class="button-delete">
                     Удалить
             </button>
+            </div>
         </div>
     </v-form>
+    
 </template>
 <script>
+import ButtonAddChildren from '@/components/ButtonAddChildren.vue';
+
+
 export default {
     name: "FormChildrenData",
     components: {
+            ButtonAddChildren,
+        },
+    data() {
+        return {
+            items: [],
+            componentName: 'child-component',
+            shapeSwitch: false,
+            onShowButton: true,
+        }
+        
+    },
+    methods: {
+        
+        pushItem() {
+            this.shapeSwitch = true;
+            if (this.items.length < 5) {
+                this.items.push({message: this.items.length});
+            } else if (this.items.length >= 5) {
+                this.onShowButton = false;
+            }
+            
+        },
+    }}
 
-    }
-}
+
+//
+// new Vue({
+//   el: "#app",
+//   data: {
+//     inputs: [
+//     	{label: 'Guest-1', placeholder: 'Guest 1'}
+//     ]
+//   },
+//   methods: {
+//   	pushInput() {
+//     	this.$set(this.inputs, this.inputs.length, {
+//       	label: 'Guest-' + (this.inputs.length + 1),
+//         placeholder: 'Guest ' + (this.inputs.length + 1)
+//       })
+//     }
+//   }
+// })
 </script>
 <style scoped>
 v-form {
