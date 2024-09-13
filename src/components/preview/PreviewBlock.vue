@@ -12,8 +12,24 @@
     
 </template>
 <script>
+import FormChildrenData from '../forms/FormChildrenData.vue';
+
+
 export default {
     name: "PreviewBlock",
+    data() {
+        return {
+            
+        }
+    },
+    props: {
+        listPersonalDataPreview: []
+    },
+    components: {
+        FormChildrenData,
+    },
+    
+    
 }
 </script>
 <style>

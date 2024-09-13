@@ -1,6 +1,21 @@
 import { createApp } from 'vue'
+import { createStore } from 'vuex'
 import App from './App.vue'
 import router from './router'
 
+const store = createStore({
+    state () {
+        return {
+            personalArray: [], //Здесь хранятся данные о пользователе
+            childrenArray: [], // А здесь данные о его детях
+            count: 0,
+        }
+    },
+    mutations: {
+      increment (state) {
+        state.count++
+      }
+    }
+  })
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(store).mount('#app')

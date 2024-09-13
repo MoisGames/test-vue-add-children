@@ -3,11 +3,20 @@
         <span>Персональные данные</span>
         <div class="input-container__personal">
             <span class="input-span">Имя</span>
-            <input type="text" class="form-personal-data__input" placeholder="Имя">
+            <input 
+                type="text" 
+                class="form-personal-data__input" 
+                placeholder="Имя" 
+                v-model="listDataPersonal.personalName">
         </div>
         <div class="input-container__personal">
             <span class="input-span">Возраст</span>
-            <input type="number" class="form-personal-data__input" placeholder="Возраст">
+            <input 
+                type="number" 
+                class="form-personal-data__input" 
+                placeholder="Возраст"
+                v-model="listDataPersonal.personalAge"
+                >
         </div>
     <div class="button-add__wrapper">
         <ButtonAddChildren @click="pushItem" v-if="onShowButton"/>
@@ -33,18 +42,23 @@
             </div>
         </div>
         </div>
-        
+        <div class="button-save__wrapper">
+            <ButtonSave @click="pushPersonalData" />
+        </div>
+        <button @click="increment">+</button>
     </v-form>
     
 </template>
 <script>
-import ButtonAddChildren from '@/components/ButtonAddChildren.vue';
+import ButtonAddChildren from '@/components/buttons/ButtonAddChildren.vue';
+import ButtonSave from '../buttons/ButtonSave.vue';
 
 
 export default {
     name: "FormChildrenData",
     components: {
             ButtonAddChildren,
+            ButtonSave,
         },
     data() {
         return {
@@ -52,11 +66,13 @@ export default {
             componentName: 'child-component',
             shapeSwitch: false,
             onShowButton: true,
+            listDataPersonal: {
+            personalName: '',
+            personalAge: '',
+            }
         }
-        
     },
     methods: {
-        
         pushItem() {
             this.shapeSwitch = true;
             if (this.items.length < 4) {
@@ -65,28 +81,18 @@ export default {
                 this.items.push({message: this.items.length});
                 this.onShowButton = false;
             }
-            
         },
-    }}
-
-
-//
-// new Vue({
-//   el: "#app",
-//   data: {
-//     inputs: [
-//     	{label: 'Guest-1', placeholder: 'Guest 1'}
-//     ]
-//   },
-//   methods: {
-//   	pushInput() {
-//     	this.$set(this.inputs, this.inputs.length, {
-//       	label: 'Guest-' + (this.inputs.length + 1),
-//         placeholder: 'Guest ' + (this.inputs.length + 1)
-//       })
-//     }
-//   }
-// })
+        increment() {
+        this.$store.commit('increment')
+        console.log(this.$store.state.count)
+        }
+        
+        // pushPersonalData(listDataPersonal) {
+        //     this.$store.per
+        // }
+    },
+    
+    }
 </script>
 <style scoped>
 v-form {
@@ -192,6 +198,11 @@ span {
     background-color: white;
     border: none;
     cursor: pointer;
-
+}
+.button-save__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 }
 </style>

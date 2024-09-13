@@ -1,7 +1,7 @@
 <template>
     <v-btn>
         <div class="img-container">
-            <img src="../assets/Union.png">
+            <img src="../../assets/Union.png">
         </div>
         <span>Добавить ребенка</span>
     </v-btn>
@@ -15,7 +15,7 @@ export default {
 <style scoped>
 @font-face {
   font-family: "Montserrat-light"; 
-  src: url("../assets/fonts/Montserrat-Light.ttf") format("truetype"); 
+  src: url("../../assets/fonts/Montserrat-Light.ttf") format("truetype"); 
   font-style: normal; 
   font-weight: normal; 
 } 
