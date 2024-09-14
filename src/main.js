@@ -6,8 +6,8 @@ import router from './router'
 const store = createStore({
     state () {
         return {
-            personalArray: [], //Здесь хранятся данные о пользователе
-            childrenArray: [], // А здесь данные о его детях
+            personalArray: {}, //Здесь хранятся данные о пользователе
+            childrenArray: {}, // А здесь данные о его детях
             count: 0,
         }
     },
@@ -15,7 +15,13 @@ const store = createStore({
       increment (state) {
         state.count++
       }
-    }
+    },
+    getters: {
+        getDataPersonal: state => {
+            return state.personalArray
+        }
+    },
+    namespaced: true
   })
-
+export default store
 createApp(App).use(router).use(store).mount('#app')

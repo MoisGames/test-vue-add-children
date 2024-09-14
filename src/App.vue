@@ -10,6 +10,7 @@
 import TheFooter from './components/TheFooter.vue';
 import TheHeader from './components/TheHeader.vue';
 import FormPage from './pages/FormPage.vue';
+import PreviewPage from './pages/PreviewPage.vue';
 
 
 
@@ -19,6 +20,7 @@ export default {
     TheHeader,
     TheFooter,
     FormPage,
+    PreviewPage,
 
     
   }

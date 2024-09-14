@@ -43,7 +43,7 @@
         </div>
         </div>
         <div class="button-save__wrapper">
-            <ButtonSave @click="pushPersonalData" />
+            <ButtonSave @click="saveData" />
         </div>
         <button @click="increment">+</button>
     </v-form>
@@ -80,18 +80,15 @@ export default {
             } else if (this.items.length = 4) {
                 this.items.push({message: this.items.length});
                 this.onShowButton = false;
+                
             }
         },
-        increment() {
-        this.$store.commit('increment')
-        console.log(this.$store.state.count)
+        saveData() {
+            this.$store.commit('increment')
+            this.$store.state.personalArray = this.listDataPersonal;
+            
         }
-        
-        // pushPersonalData(listDataPersonal) {
-        //     this.$store.per
-        // }
     },
-    
     }
 </script>
 <style scoped>
@@ -204,5 +201,8 @@ span {
     flex-direction: column;
     justify-content: start;
     align-items: start;
+}
+button {
+    cursor: pointer;
 }
 </style>

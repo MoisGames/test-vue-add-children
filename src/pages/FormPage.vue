@@ -1,6 +1,5 @@
 
 <template>
-<!-- <FormPersonalData /> -->
 <FormChildrenData />
 
 </template>

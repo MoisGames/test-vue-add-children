@@ -2,7 +2,7 @@
     <div class="preview-block__wrapper">
         <div class="preview-block__personal_wrapper">
         <label class="preview-block__label_main">Персональные данные</label>
-        <label class="preview-block__label_information">Григорий</label>
+        <label class="preview-block__label_information">{{`${store.state.personalArray.personalName}, ${store.state.personalArray.personalAge} лет`}}</label>
     </div>
     <div class="preview-block__children_wrapper">
         <label class="preview-block__label_main">Дети</label>
@@ -12,22 +12,38 @@
     
 </template>
 <script>
+import store from '@/main';
 import FormChildrenData from '../forms/FormChildrenData.vue';
 
 
+
 export default {
+    
     name: "PreviewBlock",
     data() {
         return {
-            
+            personalObject: JSON.stringify(store),
+            store
         }
     },
     props: {
-        listPersonalDataPreview: []
+        
     },
     components: {
         FormChildrenData,
     },
+    methods: {
+        test() {
+            
+        }
+    },
+    
+    computed: {
+        personal: function() {
+            this.store.getters.getDataPersonal
+        }
+    },
+    
     
     
 }
