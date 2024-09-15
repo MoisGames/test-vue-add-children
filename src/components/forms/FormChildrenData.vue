@@ -79,11 +79,11 @@ export default {
             personalAge: '',
             },
             listDataChildren: [
-                {id: 1, name: '', age: null,}, //0 индекс массива
-                {id: 2, name: '', age: null},  //1
-                {id: 3, name: '', age: null},  //2
-                {id: 4, name: '', age: null},  //3
-                {id: 5, name: '', age: null}, //4
+                {id: 1, name: '', age: ''}, //0 индекс массива
+                {id: 2, name: '', age: ''},  //1
+                {id: 3, name: '', age: ''},  //2
+                {id: 4, name: '', age: ''},  //3
+                {id: 5, name: '', age: ''}, //4
             ],
             count: 1,
         }
