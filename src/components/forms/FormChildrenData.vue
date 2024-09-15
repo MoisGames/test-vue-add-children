@@ -24,17 +24,27 @@
     
         <div class="block-children" v-if="shapeSwitch">
             <span class="span-block">Дети (макс.5)</span>
-        <div class="array-input" v-for="item in items" 
-        :key="items.length" 
+        <div class="array-input" v-for="item in itemsChildren" 
+        :key="itemsChildren.id" 
         :is="componentName">
             <div class="two-input">
             <div class="input-container">
                 <span class="input-span">Имя</span>
-                <input type="text" class="form-children-data__input" placeholder="Имя">
+                <input 
+                type="text" 
+                class="form-children-data__input" 
+                placeholder="Имя"
+                v-model="listDataChildren[item.id - 1].name"
+                >
             </div>
             <div class="input-container">
                 <span class="input-span">Возраст</span>
-                <input type="number" class="form-children-data__input" placeholder="Возраст">
+                <input 
+                type="number" 
+                class="form-children-data__input" 
+                placeholder="Возраст"
+                v-model="listDataChildren[item.id - 1].age"
+                >
             </div>
             <button class="button-delete">
                     Удалить
@@ -45,9 +55,7 @@
         <div class="button-save__wrapper">
             <ButtonSave @click="saveData" />
         </div>
-        <button @click="increment">+</button>
     </v-form>
-    
 </template>
 <script>
 import ButtonAddChildren from '@/components/buttons/ButtonAddChildren.vue';
@@ -62,32 +70,40 @@ export default {
         },
     data() {
         return {
-            items: [], // Пустой массив в который мы добавляем элементы
+            itemsChildren: [], // Пустой массив в который мы добавляем элементы
             componentName: 'child-component',
             shapeSwitch: false,
             onShowButton: true,
             listDataPersonal: {
             personalName: '',
             personalAge: '',
-            }
+            },
+            listDataChildren: [
+                {id: 1, name: '', age: null,}, //0 индекс массива
+                {id: 2, name: '', age: null},  //1
+                {id: 3, name: '', age: null},  //2
+                {id: 4, name: '', age: null},  //3
+                {id: 5, name: '', age: null}, //4
+            ],
+            count: 1,
         }
     },
     methods: {
         pushItem() {
             this.shapeSwitch = true;
-            if (this.items.length < 4) {
-                this.items.push({message: this.items.length});
-            } else if (this.items.length = 4) {
-                this.items.push({message: this.items.length});
+            if (this.itemsChildren.length < 4) {
+                this.itemsChildren.push({id: this.count});
+                this.count++
+            } else if (this.itemsChildren.length = 4) {
+                this.itemsChildren.push({id: this.count});
                 this.onShowButton = false;
-                
             }
         },
         saveData() {
             this.$store.commit('increment')
             this.$store.state.personalArray = this.listDataPersonal;
-            
-        }
+            this.$store.state.childrenArray = this.listDataChildren;
+        },
     },
     }
 </script>
@@ -181,6 +197,7 @@ span {
     flex-direction: column;
     justify-content: start;
     align-items: start;
+    gap: 20px;
 }
 .span-block {
     margin-bottom: 30px;

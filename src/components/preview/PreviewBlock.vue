@@ -4,10 +4,13 @@
         <label class="preview-block__label_main">Персональные данные</label>
         <label class="preview-block__label_information" v-if="personalObject.personalAge && personalObject.personalName !== undefined ">{{`${personalObject.personalName}, ${personalObject.personalAge} лет`}}</label>
     </div>
-    <div class="preview-block__children_wrapper">
+    <div class="preview-block__children_items" v-for="item in childrenObject">
+        <div class="preview-block__children_wrapper" v-if="childrenObject[item.id - 1].name && childrenObject[item.id - 1].age">
         <label class="preview-block__label_main">Дети</label>
-        <div class="preview-block__children_list">Василий, 30 лет</div>
+        <div class="preview-block__children_list"> {{ childrenObject[item.id -1].name }}, {{ childrenObject[item.id -1].age }}  лет</div>
     </div>
+    </div>
+
     </div>
     
 </template>
@@ -23,7 +26,7 @@ export default {
     data() {
         return {
             personalObject: store.state.personalArray ,
-            
+            childrenObject: store.state.childrenArray
         }
     },
     props: {
@@ -107,7 +110,9 @@ export default {
     font-weight: 700;
     line-height: 24px;
     text-align: left;
-
-
+}
+.preview-block__children_items {
+    display: flex;
+    flex-direction: column;
 }
 </style>

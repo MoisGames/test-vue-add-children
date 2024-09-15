@@ -7,7 +7,7 @@ const store = createStore({
     state () {
         return {
             personalArray: {}, //Здесь хранятся данные о пользователе
-            childrenArray: {}, // А здесь данные о его детях
+            childrenArray: [{}], // А здесь данные о его детях
             count: 0,
         }
     },
@@ -19,6 +19,9 @@ const store = createStore({
     getters: {
         getDataPersonal: state => {
             return state.personalArray
+        },
+        getDataChildren: state => {
+          return state.childrenArray
         }
     },
     namespaced: true
